@@ -1,11 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'additional_files.dart';
 
 class HomeScreenContent extends StatefulWidget {
-  const HomeScreenContent({super.key});
+  const HomeScreenContent({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreenContent> createState() => _HomeScreenContentState();
+  _HomeScreenContentState createState() => _HomeScreenContentState();
 }
 
 class _HomeScreenContentState extends State<HomeScreenContent> {
@@ -14,16 +15,93 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        elevation: 16.0, // Adjust elevation for a more prominent drawer
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              // Header with gradient and padding
+              Container(
+                padding: EdgeInsets.all(20.0),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.teal.shade700, Colors.teal.shade900],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                ),
+                child: Text(
+                  'My Settings',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              // Divider with custom color
+              Divider(color: Colors.grey.shade300),
+              // List items with slight padding and icons (optional)
+              GestureDetector(
+                child: ListTile(
+                  leading: Icon(Icons.bookmark, color: Colors.teal.shade700),
+                  title: Text('Saved Jobs'),
+                ),
+              ),
+              GestureDetector(
+                child: ListTile(
+                  leading: Icon(Icons.notifications, color: Colors.teal.shade700),
+                  title: Text('Notification'),
+                ),
+              ),
+              GestureDetector(
+                child: ListTile(
+                  leading: Icon(Icons.settings, color: Colors.teal.shade700),
+                  title: Text('Account Settings'),
+                ),
+              ),
+              GestureDetector(
+                child: ListTile(
+                  leading: Icon(Icons.help, color: Colors.teal.shade700),
+                  title: Text('Help'),
+                ),
+              ),
+              GestureDetector(
+                child: ListTile(
+                  leading: Icon(Icons.lock, color: Colors.teal.shade700),
+                  title: Text('Privacy'),
+                ),
+              ),
+              GestureDetector(
+                child: ListTile(
+                  leading: Icon(Icons.settings, color: Colors.teal.shade700),
+                  title: Text('Settings'),
+                ),
+              ),
+              // Log out with different styling
+              Text(
+                'Log Out',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.red.shade700, // Use a contrasting color
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.black,
         elevation: 0,
         centerTitle: true,
         title: Text(
           'Feed',
           style: TextStyle(
             fontSize: 24,
-            color: Colors.black,
+            color: Colors.white,
             letterSpacing: 2,
             fontWeight: FontWeight.bold,
           ),
@@ -65,8 +143,12 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                             children: [
                               CircleAvatar(
                                 radius: 30,
-                                backgroundImage: AssetImage(
-                                  additionalFiles.storyList![index].imagePath,
+                                backgroundColor: Colors.black,
+                                child: CircleAvatar(
+                                  radius: 28,
+                                  backgroundImage: AssetImage(
+                                    additionalFiles.storyList![index].imagePath,
+                                  ),
                                 ),
                               ),
                               SizedBox(height: 5),
@@ -102,10 +184,10 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withOpacity(0.2),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3),
+                          color: Colors.grey.withOpacity(0.1),
+                          spreadRadius: 2,
+                          blurRadius: 4,
+                          offset: Offset(0, 2),
                         ),
                       ],
                     ),
@@ -116,8 +198,12 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                           children: [
                             CircleAvatar(
                               radius: 20,
-                              backgroundImage: AssetImage(
-                                additionalFiles.postList![index].imagePath,
+                              backgroundColor: Colors.black,
+                              child: CircleAvatar(
+                                radius: 18,
+                                backgroundImage: AssetImage(
+                                  additionalFiles.postList![index].imagePath,
+                                ),
                               ),
                             ),
                             SizedBox(width: 10),
@@ -126,6 +212,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
+                                color: Colors.black,
                               ),
                             ),
                           ],

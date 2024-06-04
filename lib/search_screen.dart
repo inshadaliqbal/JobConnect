@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:luxuryguide/additional_files.dart';
 import 'package:luxuryguide/extracted_widget.dart';
 import 'package:luxuryguide/job_page.dart';
-import 'package:luxuryguide/login_screen.dart';
+import 'additional_files.dart';
 
 class SearchScreen extends StatefulWidget {
   static const searchScreen = 'SearchScreen';
-  SearchScreen({super.key});
+  SearchScreen({Key? key}) : super(key: key);
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
@@ -21,7 +20,7 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         elevation: 0,
         centerTitle: true,
         title: Text(
@@ -29,7 +28,7 @@ class _SearchScreenState extends State<SearchScreen> {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 24,
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
       ),
@@ -66,9 +65,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     onTap: () {
                       // Handle tap if necessary
                     },
-                    child: AnimatedContainer(
-                      duration: Duration(milliseconds: 300),
-                      curve: Curves.easeInOut,
+                    child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.0),
                         color: Colors.white,
@@ -87,7 +84,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           Icon(
                             additionalFiles.jobFieldList![index].iconName,
                             size: 40,
-                            color: Colors.blueAccent,
+                            color: Colors.black,
                           ),
                           SizedBox(height: 10.0),
                           Text(
@@ -95,7 +92,7 @@ class _SearchScreenState extends State<SearchScreen> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 18,
-                              color: Colors.black87,
+                              color: Colors.black,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -106,13 +103,9 @@ class _SearchScreenState extends State<SearchScreen> {
                 },
               ),
             ),
-            SizedBox(height: 20.0),
-            MainButton(
-              title: 'Explore',
-              buttonFunction: () {
-                Navigator.pushNamed(context, JobPage.jobPage); // Assuming JobPage exists
-              },
-            ),
+            MainButton(title: 'Explore Jobs', buttonFunction: (){
+              Navigator.pushNamed(context, JobPage.jobPage);
+            })
           ],
         ),
       ),

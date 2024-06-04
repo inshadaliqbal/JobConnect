@@ -120,27 +120,27 @@ class _ChatScreenState extends State<ChatScreen> {
               child: ListView.builder(
                 itemCount: additionalFiles.storyList!.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                    margin: EdgeInsets.symmetric(vertical: 10),
-                    child: Row(
-                      children: [
-                        GestureDetector(
-                          onTap:(){
-                            Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return MessageScreen(username: additionalFiles.storyList![index].name,imagePath: additionalFiles.storyList![index].imagePath,);
-                            }));
-                          },
-                          child: CircleAvatar(
+                  return GestureDetector(
+                    onTap:(){
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return MessageScreen(username: additionalFiles.storyList![index].name,imagePath: additionalFiles.storyList![index].imagePath,);
+                      }));
+                    },
+                    child: Container(
+                      margin: EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                        children: [
+                          CircleAvatar(
                             radius: 30,
                             backgroundImage: AssetImage(additionalFiles.storyList![index].imagePath),
                           ),
-                        ),
-                        SizedBox(width: 10),
-                        Text(
-                          additionalFiles.storyList![index].name,
-                          style: TextStyle(fontSize: 18, color: Colors.black, letterSpacing: 1.5),
-                        ),
-                      ],
+                          SizedBox(width: 10),
+                          Text(
+                            additionalFiles.storyList![index].name,
+                            style: TextStyle(fontSize: 18, color: Colors.black, letterSpacing: 1.5),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },

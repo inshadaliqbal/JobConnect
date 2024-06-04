@@ -14,7 +14,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(
+        title: const Text(
           'Profile',
           style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -24,12 +24,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         backgroundColor: Colors.black,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20.0), // Common padding applied
+          padding: EdgeInsets.all(20.0), // Common padding applied
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -131,7 +131,7 @@ class CustomListTile extends StatelessWidget {
       child: ListTile(
         title: Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: Colors.black,
@@ -140,7 +140,7 @@ class CustomListTile extends StatelessWidget {
         subtitle: value != null
             ? Text(
           value!,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w500,
             color: Colors.black54,
@@ -148,7 +148,7 @@ class CustomListTile extends StatelessWidget {
         )
             : null,
         trailing: IconButton(
-          icon: Icon(Icons.edit),
+          icon: const Icon(Icons.edit),
           onPressed: () {
             // Add edit functionality here
           },
@@ -177,7 +177,7 @@ class CustomListTileWithScrollableContent extends StatelessWidget {
       child: ListTile(
         title: Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: Colors.black,
@@ -192,10 +192,10 @@ class CustomListTileWithScrollableContent extends StatelessWidget {
               children: items
                   .map(
                     (item) => Padding(
-                  padding: EdgeInsets.only(right: 10),
+                  padding: const EdgeInsets.only(right: 10),
                   child: Text(
                     '$item, ',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       color: Colors.black54,
@@ -208,7 +208,7 @@ class CustomListTileWithScrollableContent extends StatelessWidget {
           ),
         ),
         trailing: IconButton(
-          icon: Icon(Icons.edit),
+          icon: const Icon(Icons.edit),
           onPressed: () {
             // Add edit functionality here
           },

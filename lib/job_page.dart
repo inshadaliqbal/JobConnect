@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 class JobPage extends StatefulWidget {
   static const jobPage = 'JobPage';
 
-  const JobPage({Key? key}) : super(key: key);
+  const JobPage({super.key});
 
   @override
   State<JobPage> createState() => _JobPageState();
@@ -23,7 +23,7 @@ class _JobPageState extends State<JobPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Job Search',
           style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -33,7 +33,7 @@ class _JobPageState extends State<JobPage> {
         ),
         backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       backgroundColor: Colors.white,
       body: Padding(
@@ -42,7 +42,7 @@ class _JobPageState extends State<JobPage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(vertical: 20.0),
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
               color: Colors.white,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,25 +57,25 @@ class _JobPageState extends State<JobPage> {
                         borderSide: BorderSide.none,
                       ),
                       contentPadding:
-                          EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                          const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
                     ),
-                    icon: Icon(Icons.arrow_downward, color: Colors.black),
+                    icon: const Icon(Icons.arrow_downward, color: Colors.black),
                     iconSize: 24,
                     elevation: 16,
-                    style: TextStyle(color: Colors.black),
+                    style: const TextStyle(color: Colors.black),
                     onChanged: (String? newValue) {
                       setState(() {
                         _selectedItem = newValue!;
                       });
                     },
-                    items: [
+                    items: const [
                       DropdownMenuItem<String>(
                         value: 'Select Location',
                         child: Text('Select Location'),
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   MainTextField(hintText: 'Search', textfieldFunction: () {}),
                 ],
               ),
@@ -84,7 +84,7 @@ class _JobPageState extends State<JobPage> {
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               child: MainButton(title: 'Search', buttonFunction: () {}),
             ),
-            Text(
+            const Text(
               'Job List',
               style: TextStyle(
                 fontSize: 24,
@@ -93,7 +93,7 @@ class _JobPageState extends State<JobPage> {
                 color: Colors.black,
               ),
             ),
-            SizedBox(height: 10), // Add spacing between title and list
+            const SizedBox(height: 10), // Add spacing between title and list
             Expanded(
               child: ListView.builder(
                 itemCount: additionalFiles.jobCardList.length, // Example number of job items
@@ -130,7 +130,7 @@ class JobCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
@@ -145,7 +145,7 @@ class JobCard extends StatelessWidget {
         ),
         title: Text(
           jobTitle,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             letterSpacing: 1,
@@ -157,7 +157,7 @@ class JobCard extends StatelessWidget {
           children: [
             Text(
               location,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
                 letterSpacing: 1,
@@ -166,7 +166,7 @@ class JobCard extends StatelessWidget {
             ),
             Text(
               jobType,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
                 letterSpacing: 1,
@@ -175,8 +175,8 @@ class JobCard extends StatelessWidget {
             ),
           ],
         ),
-        trailing: Icon(Icons.book, size: 24, color: Colors.black),
-        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        trailing: const Icon(Icons.book, size: 24, color: Colors.black),
+        contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         onTap: () {
           // Add action when the ListTile is tapped
         },

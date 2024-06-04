@@ -4,6 +4,7 @@ import 'package:luxuryguide/additional_files.dart';
 import 'package:luxuryguide/chats_screen.dart';
 import 'package:luxuryguide/home_feed.dart';
 import 'package:luxuryguide/profile_screen.dart';
+import 'package:luxuryguide/widgets.dart';
 import 'search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -33,37 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            activeIcon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search_outlined),
-            activeIcon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.message_outlined),
-            activeIcon: Icon(Icons.message),
-            label: 'Messages',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            activeIcon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blueAccent,
-        unselectedItemColor: Colors.black54,
-        backgroundColor: Colors.white,
-        type: BottomNavigationBarType.fixed,
-        onTap: _onItemTapped,
-        elevation: 0,  // No elevation for a flat design
-      ),
+      bottomNavigationBar:
+          buildBottomNavigationBarWidget(_onItemTapped, _selectedIndex),
       backgroundColor: Colors.blueGrey.shade100,
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),

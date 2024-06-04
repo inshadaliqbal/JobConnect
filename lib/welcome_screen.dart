@@ -22,23 +22,12 @@ class WelcomeScreen extends StatelessWidget {
                 image: AssetImage('assets/images/welcomepageimage.jpg'),
                 fit: BoxFit.cover,
               ),
-              // decoration: BoxDecoration(
-              //   borderRadius: BorderRadius.circular(15),
-              //   boxShadow: [
-              //     BoxShadow(
-              //       color: Colors.grey.withOpacity(0.5),
-              //       spreadRadius: 5,
-              //       blurRadius: 7,
-              //       offset: Offset(0, 3), // changes position of shadow
-              //     ),
-              //   ],
-              // ),
             ),
             SizedBox(height: 30),
             Text(
-              'Connect with your field',
+              'Network Elegantly with Professionals in Your Field',
               style: TextStyle(
-                fontSize: 28,
+                fontSize: 20,
                 color: Colors.black87,
                 letterSpacing: 2,
                 fontWeight: FontWeight.bold,
@@ -46,15 +35,18 @@ class WelcomeScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 40),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                MainButton(title: 'Sign In', buttonFunction: (){}),
-                SizedBox(width: 20),
-                MainButton(title: 'Sign Up',buttonFunction: (){
-                  Navigator.pushNamed(context, LoginScreen.loginScreen);
-                },),
-              ],
+            Padding(
+              padding: const EdgeInsets.only(top: 100.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  MainButton(title: 'Sign In', buttonFunction: (){}),
+                  SizedBox(width: 20),
+                  MainButton(title: 'Sign Up',buttonFunction: (){
+                    Navigator.pushNamed(context, LoginScreen.loginScreen);
+                  },),
+                ],
+              ),
             ),
           ],
         ),
