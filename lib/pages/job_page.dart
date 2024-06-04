@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:luxuryguide/additional_files.dart';
-import 'package:luxuryguide/constants.dart';
-import 'package:luxuryguide/extracted_widget.dart';
+import 'package:luxuryguide/helpers/additional_files.dart';
+import 'package:luxuryguide/style/constants.dart';
+import 'package:luxuryguide/widgets/extracted_widget.dart';
 
 class JobPage extends StatefulWidget {
   static const String jobPage = 'JobPage';

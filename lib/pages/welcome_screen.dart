@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:luxuryguide/constants.dart';
-import 'package:luxuryguide/login_screen.dart';
-import 'extracted_widget.dart';
+import 'package:luxuryguide/style/constants.dart';
+import 'package:luxuryguide/pages/login_screen.dart';
+import '../widgets/extracted_widget.dart';
 
 class WelcomeScreen extends StatelessWidget {
   static const welcome_screen = 'WelcomeScreen';

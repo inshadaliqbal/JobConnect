@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:luxuryguide/extracted_widget.dart';
-import 'package:luxuryguide/home_screen.dart';
-import 'constants.dart';
+import 'package:luxuryguide/widgets/extracted_widget.dart';
+import 'package:luxuryguide/pages/home_screen.dart';
+import '../style/constants.dart';
 
-import 'package:luxuryguide/additional_files.dart';
+import 'package:luxuryguide/helpers/additional_files.dart';
 
 
 BottomNavigationBar buildBottomNavigationBarWidget(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:luxuryguide/constants.dart';
-import 'package:luxuryguide/extracted_widget.dart';
-import 'package:luxuryguide/job_page.dart';
-import 'additional_files.dart';
+import 'package:luxuryguide/style/constants.dart';
+import 'package:luxuryguide/widgets/extracted_widget.dart';
+import 'package:luxuryguide/pages/job_page.dart';
+import '../helpers/additional_files.dart';
 
 class SearchScreen extends StatefulWidget {
   static const String searchScreen = 'SearchScreen'; // Use String for route names

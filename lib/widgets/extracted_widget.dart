@@ -1,8 +1,8 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:luxuryguide/additional_files.dart';
-import 'package:luxuryguide/constants.dart';
+import 'package:luxuryguide/helpers/additional_files.dart';
+import 'package:luxuryguide/style/constants.dart';
 
 
 class MainButton extends StatelessWidget {

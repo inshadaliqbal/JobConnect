@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:luxuryguide/constants.dart';
-import 'package:luxuryguide/widgets.dart';
-import 'additional_files.dart';
+import 'package:luxuryguide/style/constants.dart';
+import 'package:luxuryguide/widgets/widgets.dart';
+import '../helpers/additional_files.dart';
 
+
+final GlobalKey<ScaffoldState> _key = GlobalKey();
 class HomeScreenContent extends StatefulWidget {
   const HomeScreenContent({Key? key}) : super(key: key);
 
@@ -17,8 +19,15 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _key,
       drawer: buildDrawer(context),
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.menu,color: Colors.white,),
+          onPressed: () {
+            _key.currentState!.openDrawer();
+          },
+        ),
         automaticallyImplyLeading: false,
         backgroundColor: Colors.black,
         elevation: 0,

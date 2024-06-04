@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:luxuryguide/additional_files.dart';
-import 'package:luxuryguide/chats_screen.dart';
-import 'package:luxuryguide/home_feed.dart';
-import 'package:luxuryguide/profile_screen.dart';
-import 'package:luxuryguide/widgets.dart';
+import 'package:luxuryguide/helpers/additional_files.dart';
+import 'package:luxuryguide/pages/chats_screen.dart';
+import 'package:luxuryguide/pages/home_feed.dart';
+import 'package:luxuryguide/pages/profile_screen.dart';
+import 'package:luxuryguide/widgets/widgets.dart';
 import 'search_screen.dart';
 
 class HomeScreen extends StatefulWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:luxuryguide/additional_files.dart';
-import 'package:luxuryguide/constants.dart';
-import 'package:luxuryguide/message_screen.dart';
+import 'package:luxuryguide/helpers/additional_files.dart';
+import 'package:luxuryguide/style/constants.dart';
+import 'package:luxuryguide/pages/message_screen.dart';
 
 
 class ChatScreen extends StatefulWidget {

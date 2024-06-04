@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:luxuryguide/constants.dart';
+import 'package:luxuryguide/style/constants.dart';
 
 class MessageScreen extends StatefulWidget {
   static const String chatScreen = 'ChatScreen';

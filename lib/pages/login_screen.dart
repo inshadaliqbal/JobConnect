@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:luxuryguide/constants.dart';
-import 'package:luxuryguide/extracted_widget.dart';
-import 'package:luxuryguide/home_screen.dart';
-import 'package:luxuryguide/widgets.dart';
+import 'package:luxuryguide/style/constants.dart';
+import 'package:luxuryguide/widgets/extracted_widget.dart';
+import 'package:luxuryguide/pages/home_screen.dart';
+import 'package:luxuryguide/widgets/widgets.dart';
 
 class LoginScreen extends StatelessWidget {
   static const String loginScreen = 'LoginScreen';

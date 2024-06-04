@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:luxuryguide/constants.dart';
-import 'package:luxuryguide/extracted_widget.dart';
+import 'package:luxuryguide/style/constants.dart';
+import 'package:luxuryguide/widgets/extracted_widget.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const profileScreen = 'ProfileScreen';
