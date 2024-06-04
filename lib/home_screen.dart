@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:luxuryguide/additional_files.dart';
-import 'package:luxuryguide/chat_screen.dart';
+import 'package:luxuryguide/chats_screen.dart';
 import 'package:luxuryguide/home_feed.dart';
 import 'package:luxuryguide/profile_screen.dart';
 import 'search_screen.dart';

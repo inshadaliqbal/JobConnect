@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class AdditionalFiles {
@@ -69,6 +70,12 @@ class AdditionalFiles {
       iconName: Icons.monetization_on,
     ),
   ];
+
+  List jobCardList = [
+    JobCardClass(name: 'Product Designer',location: 'United States',jobType: 'Intern',imagePath: 'assets/logo/apple.png'),
+    JobCardClass(name: 'Flutter Developer',location: 'United States',jobType: 'Permanent',imagePath: 'assets/logo/google.png'),
+    JobCardClass(name: 'Web Designer',location: 'India',jobType: 'Intern',imagePath: 'assets/logo/facebook.png')
+  ];
 }
 
 class StoryFile {
@@ -89,4 +96,13 @@ class JobField {
   IconData? iconName;
 
   JobField({this.name, this.iconName});
+}
+
+class JobCardClass{
+  String? name;
+  String? imagePath;
+  String? jobType;
+  String? location;
+
+  JobCardClass({this.name,this.imagePath,this.jobType,this.location});
 }

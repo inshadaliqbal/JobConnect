@@ -21,58 +21,98 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Center(child: Text('Explore')),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          'Explore',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+            color: Colors.black,
+          ),
+        ),
       ),
       backgroundColor: Colors.white,
       body: Container(
-        padding: EdgeInsets.only(
-          top: 20.0, // Adjust padding based on screen size
-          left: (screenWidth < 600) ? 10.0 : 20.0, // Adjust padding for responsiveness
-          right: (screenWidth < 600) ? 10.0 : 20.0, // Adjust padding for responsiveness
-          bottom: 20.0,
+        padding: EdgeInsets.symmetric(
+          vertical: 20.0,
+          horizontal: screenWidth < 600 ? 10.0 : 20.0,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
               'Select the field you want to explore',
-              style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.w400),
-            ),
-            Container(
-              constraints: BoxConstraints(
-                  maxHeight: 400
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black87,
+                fontWeight: FontWeight.w500,
               ),
+            ),
+            SizedBox(height: 20.0),
+            Expanded(
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: (screenWidth < 600) ? 16/9 : 12/10,
+                  crossAxisSpacing: 15.0,
+                  mainAxisSpacing: 15.0,
+                  childAspectRatio: screenWidth < 600 ? 16 / 9 : 12 / 10,
                 ),
                 itemCount: additionalFiles.jobFieldList!.length,
                 itemBuilder: (context, index) {
-                  return CircleAvatar(
-                    radius: 60,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          additionalFiles.jobFieldList![index].iconName,
-                          size: 30,
-                          color: Colors.black,
-                        ),
-                        Text(
-                          additionalFiles.jobFieldList![index].name,
-                          style: TextStyle(fontSize: 18),
-                        ),
-                      ],
+                  return GestureDetector(
+                    onTap: () {
+                      // Handle tap if necessary
+                    },
+                    child: AnimatedContainer(
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.2),
+                            spreadRadius: 3,
+                            blurRadius: 5,
+                            offset: Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            additionalFiles.jobFieldList![index].iconName,
+                            size: 40,
+                            color: Colors.blueAccent,
+                          ),
+                          SizedBox(height: 10.0),
+                          Text(
+                            additionalFiles.jobFieldList![index].name,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
               ),
             ),
-            MainButton(title: 'Explore', buttonFunction: () {
-              Navigator.pushNamed(context, JobPage.jobPage);  // Assuming JobPage exists
-            }),
+            SizedBox(height: 20.0),
+            MainButton(
+              title: 'Explore',
+              buttonFunction: () {
+                Navigator.pushNamed(context, JobPage.jobPage); // Assuming JobPage exists
+              },
+            ),
           ],
         ),
       ),

@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:luxuryguide/additional_files.dart';
+import 'package:luxuryguide/extracted_widget.dart';
+
+import 'package:flutter/material.dart';
 
 class JobPage extends StatefulWidget {
   static const jobPage = 'JobPage';
@@ -13,148 +17,169 @@ class JobPage extends StatefulWidget {
 
 class _JobPageState extends State<JobPage> {
   String _selectedItem = 'Select Location';
+  AdditionalFiles additionalFiles = AdditionalFiles();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Container(
-            padding: EdgeInsets.all(20),
-            color: Colors.blueGrey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                DropdownButton<String>(
-                  value: _selectedItem,
-                  icon: Icon(Icons.arrow_downward), // Dropdown icon
-                  iconSize: 24,
-                  elevation: 16,
-                  style: TextStyle(color: Colors.deepPurple),
-                  underline: Container(
-                    height: 2,
-                    color: Colors.deepPurpleAccent,
-                  ),
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      _selectedItem = newValue!;
-                      // Here you can handle the action when "Select Location" is chosen
-                      // For example, show a dialog with location options
-                      // _showLocationDialog(context);
-                    });
-                  },
-                  items: [
-                    DropdownMenuItem<String>(
-                      value: 'Select Location',
-                      child: Text('Select Location'),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                TextField(
-                  onChanged: (value) {},
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white24,
-                    hintText: 'Password',
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(32.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.teal, width: 1.0),
-                      borderRadius: BorderRadius.circular(32.0),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Colors.blueAccent, width: 2.0),
-                      borderRadius: BorderRadius.circular(32.0),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+      appBar: AppBar(
+        title: Text(
+          'Job Search',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+            color: Colors.black,
           ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: IconThemeData(color: Colors.black),
+      ),
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.all(20.0), // Common padding applied
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 20.0),
+              color: Colors.white,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  DropdownButtonFormField<String>(
+                    value: _selectedItem,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[200],
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: BorderSide.none,
+                      ),
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                    ),
+                    icon: Icon(Icons.arrow_downward, color: Colors.black),
+                    iconSize: 24,
+                    elevation: 16,
+                    style: TextStyle(color: Colors.black),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        _selectedItem = newValue!;
+                      });
+                    },
+                    items: [
+                      DropdownMenuItem<String>(
+                        value: 'Select Location',
+                        child: Text('Select Location'),
+                      ),
+                    ],
                   ),
-                ),
-                padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                  EdgeInsets.symmetric(vertical: 16),
-                ),
-              ),
-              child: Text(
-                'Search',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: 4,
-                ),
+                  SizedBox(height: 20),
+                  MainTextField(hintText: 'Search', textfieldFunction: () {}),
+                ],
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
-            child: Text(
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: MainButton(title: 'Search', buttonFunction: () {}),
+            ),
+            Text(
               'Job List',
               style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                letterSpacing: 4,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1.5,
+                color: Colors.black,
               ),
             ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 1, // Example number of job items
-              itemBuilder: (context, index) {
-                return Card(
-                  margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: ListTile(
-                    leading: Image.asset(
-                      'assets/logo/apple.png',
-                      fit: BoxFit.fill,
-                    ),
-                    title: Text(
-                      'Product Designer',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 1,
-                      ),
-                    ),
-                    subtitle: Text(
-                      'United States',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 1,
-                      ),
-                    ),
-                    trailing: Icon(Icons.book, size: 20),
-                    contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    onTap: () {
-                      // Add action when the ListTile is tapped
-                    },
-                  ),
-                );
-              },
+            SizedBox(height: 10), // Add spacing between title and list
+            Expanded(
+              child: ListView.builder(
+                itemCount: additionalFiles.jobCardList.length, // Example number of job items
+                itemBuilder: (context, index) {
+                  return JobCard(
+                      jobTitle: additionalFiles.jobCardList[index].name,
+                      location: additionalFiles.jobCardList[index].location,
+                      imagePath: additionalFiles.jobCardList[index].imagePath,
+                      jobType: additionalFiles.jobCardList[index].jobType);
+                },
+              ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
+class JobCard extends StatelessWidget {
+  final String jobTitle;
+  final String location;
+  final String imagePath;
+  final String jobType;
+
+  const JobCard({
+    required this.jobTitle,
+    required this.location,
+    required this.imagePath,
+    required this.jobType,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      elevation: 5,
+      child: ListTile(
+        leading: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image.asset(
+            imagePath,
+            fit: BoxFit.fill,
           ),
-        ],
+        ),
+        title: Text(
+          jobTitle,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 1,
+            color: Colors.black,
+          ),
+        ),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              location,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                letterSpacing: 1,
+                color: Colors.black54,
+              ),
+            ),
+            Text(
+              jobType,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                letterSpacing: 1,
+                color: Colors.black54,
+              ),
+            ),
+          ],
+        ),
+        trailing: Icon(Icons.book, size: 24, color: Colors.black),
+        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        onTap: () {
+          // Add action when the ListTile is tapped
+        },
       ),
     );
   }

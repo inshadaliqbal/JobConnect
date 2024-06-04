@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:luxuryguide/chats_screen.dart';
 import 'package:luxuryguide/home_screen.dart';
 import 'package:luxuryguide/job_page.dart';
 import 'package:luxuryguide/login_screen.dart';
+import 'package:luxuryguide/message_screen.dart';
 import 'package:luxuryguide/welcome_screen.dart';
 
 void main() {
@@ -20,7 +22,7 @@ class LuxuryGuide extends StatelessWidget {
         WelcomeScreen.welcome_screen: (context)=> WelcomeScreen(),
         LoginScreen.loginScreen: (context) => LoginScreen(),
         HomeScreen.homeScreen: (context) => HomeScreen(),
-        JobPage.jobPage: (context)=> JobPage()
+        JobPage.jobPage: (context)=> JobPage(),
       },
     );
   }
