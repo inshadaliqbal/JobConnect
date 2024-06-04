@@ -248,3 +248,4 @@ Widget buildSocialLoginSection(BuildContext context) {
     ),
   );
 }
+
