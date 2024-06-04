@@ -76,6 +76,21 @@ class AdditionalFiles {
     JobCardClass(name: 'Flutter Developer',location: 'United States',jobType: 'Permanent',imagePath: 'assets/logo/google.png'),
     JobCardClass(name: 'Web Designer',location: 'India',jobType: 'Intern',imagePath: 'assets/logo/facebook.png')
   ];
+
+  List drawerFileList = [
+    DrawerFiles(name: 'Saved Jobs',iconName: Icons.bookmark),
+
+    DrawerFiles(name: 'Notification',iconName: Icons.notifications),
+
+    DrawerFiles(name: 'Account Settings',iconName: Icons.settings),
+
+    DrawerFiles(name: 'Help',iconName: Icons.help),
+
+    DrawerFiles(name: 'Privacy',iconName: Icons.lock),
+
+    DrawerFiles(name: 'Settings',iconName: Icons.manage_accounts_sharp),
+  ];
+
 }
 
 class StoryFile {
@@ -105,4 +120,11 @@ class JobCardClass{
   String? location;
 
   JobCardClass({this.name,this.imagePath,this.jobType,this.location});
+}
+
+class DrawerFiles{
+  String? name;
+  IconData? iconName;
+
+  DrawerFiles({this.name,this.iconName});
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luxuryguide/constants.dart';
 
 class MessageScreen extends StatefulWidget {
   static const String chatScreen = 'ChatScreen';
@@ -19,12 +20,12 @@ class _MessageScreenState extends State<MessageScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back,color: Colors.white,),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         elevation: 5, // Add a small shadow
         titleSpacing: 0,
         title: Row(
@@ -38,13 +39,7 @@ class _MessageScreenState extends State<MessageScreen> {
             SizedBox(width: 10),
             Text(
               widget.username!,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w600,
-                fontFamily: 'Recharge',
-                letterSpacing: 4,
-                color: Colors.black,
-              ),
+              style: kAppBarTextStyle
             ),
           ],
         ),

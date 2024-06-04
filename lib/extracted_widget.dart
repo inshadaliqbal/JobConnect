@@ -46,7 +46,7 @@ class MainButton extends StatelessWidget {
           style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
-              letterSpacing: 4,
+              letterSpacing: 2,
               color: Colors.white
           ),
         ),
@@ -107,4 +107,109 @@ class MainTextField extends StatelessWidget {
   }
 }
 
+class CustomListTile extends StatelessWidget {
+  final String title;
+  final String? value;
+
+  const CustomListTile({
+    required this.title,
+    this.value,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
+      elevation: 5,
+      child: ListTile(
+        title: Text(
+          title,
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+        subtitle: value != null
+            ? Text(
+          value!,
+          style: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            color: Colors.black54,
+          ),
+        )
+            : null,
+        trailing: IconButton(
+          icon: const Icon(Icons.edit),
+          onPressed: () {
+            // Add edit functionality here
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class CustomListTileWithScrollableContent extends StatelessWidget {
+  final String title;
+  final List<String> items;
+
+  const CustomListTileWithScrollableContent({
+    required this.title,
+    required this.items,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
+      elevation: 5,
+      child: ListTile(
+        title: Text(
+          title,
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+        subtitle: SizedBox(
+          height: 100, // Set maximum height for the column
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal, // Scroll horizontally
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: items
+                  .map(
+                    (item) => Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: Text(
+                    '$item, ',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54,
+                    ),
+                  ),
+                ),
+              )
+                  .toList(),
+            ),
+          ),
+        ),
+        trailing: IconButton(
+          icon: const Icon(Icons.edit),
+          onPressed: () {
+            // Add edit functionality here
+          },
+        ),
+      ),
+    );
+  }
+}
 

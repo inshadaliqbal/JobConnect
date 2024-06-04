@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:luxuryguide/constants.dart';
+import 'extracted_widget.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const profileScreen = 'ProfileScreen';
@@ -14,12 +16,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text(
-          'Profile',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
-            color: Colors.white,
+        title: Center(
+          child: const Text(
+            'Profile',
+            style: kAppBarTextStyle
           ),
         ),
         backgroundColor: Colors.black,
@@ -43,41 +43,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Center(
                 child: Text(
                   'Inshad 24',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
+                  style: kProfileMainTextStyle
                 ),
               ),
               Center(
                 child: Text(
                   '@inshadiqbal',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black54,
-                  ),
+                  style: kSecondDegreeTextStyle
                 ),
               ),
               Center(
                 child: Text(
                   'Flutter Developer',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black,
-                  ),
+                  style: kNormalDegreeTextStyle
                 ),
               ),
               Center(
                 child: Text(
                   'India',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black54,
-                  ),
+                  style: kSecondDegreeTextStyle
                 ),
               ),
               SizedBox(height: 20),
@@ -112,108 +96,3 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 }
 
-class CustomListTile extends StatelessWidget {
-  final String title;
-  final String? value;
-
-  const CustomListTile({
-    required this.title,
-    this.value,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      elevation: 5,
-      child: ListTile(
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
-        ),
-        subtitle: value != null
-            ? Text(
-          value!,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: Colors.black54,
-          ),
-        )
-            : null,
-        trailing: IconButton(
-          icon: const Icon(Icons.edit),
-          onPressed: () {
-            // Add edit functionality here
-          },
-        ),
-      ),
-    );
-  }
-}
-
-class CustomListTileWithScrollableContent extends StatelessWidget {
-  final String title;
-  final List<String> items;
-
-  const CustomListTileWithScrollableContent({
-    required this.title,
-    required this.items,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      elevation: 5,
-      child: ListTile(
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
-        ),
-        subtitle: SizedBox(
-          height: 100, // Set maximum height for the column
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal, // Scroll horizontally
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: items
-                  .map(
-                    (item) => Padding(
-                  padding: const EdgeInsets.only(right: 10),
-                  child: Text(
-                    '$item, ',
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black54,
-                    ),
-                  ),
-                ),
-              )
-                  .toList(),
-            ),
-          ),
-        ),
-        trailing: IconButton(
-          icon: const Icon(Icons.edit),
-          onPressed: () {
-            // Add edit functionality here
-          },
-        ),
-      ),
-    );
-  }
-}

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
+import 'package:luxuryguide/constants.dart';
 import 'package:luxuryguide/extracted_widget.dart';
 import 'package:luxuryguide/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -13,39 +14,46 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Expanded(
+            const Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [Text(
-                  'Hello Again!',
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-                ),
+                children: [
+                  Text(
+                    'Hello Again!',
+                    style: kFirstDegreeTextStyle,
+                  ),
                   Text(
                     'Welcome back, your people are missing you!',
-                    style: TextStyle(fontSize: 18, color: Colors.grey),
-                  ),],
+                    style: kSecondDegreeTextStyle,
+                  ),
+                ],
               ),
             ),
-
             Expanded(
               child: Column(
                 children: [
-                  MainTextField(hintText: 'Email',textfieldFunction: (){},),
-                  SizedBox(height: 20),
-                  MainTextField(hintText: 'Password',textfieldFunction: (){},),
-                  SizedBox(height: 12),
+                  MainTextField(
+                    hintText: 'Email',
+                    textfieldFunction: () {},
+                  ),
+                  const SizedBox(height: 20),
+                  MainTextField(
+                    hintText: 'Password',
+                    textfieldFunction: () {},
+                  ),
+                  const SizedBox(height: 12),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       TextButton(
                         onPressed: () {},
-                        child: Text(
+                        child: const Text(
                           'Forgot your password?',
                           style: TextStyle(color: Colors.blue),
                         ),
@@ -60,19 +68,24 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  MainButton(title: 'Sign In', buttonFunction: () {
-                    Navigator.pushNamed(context, HomeScreen.homeScreen);
-                  }),
-                  SizedBox(height: 20,),
-                  Center(
+                  MainButton(
+                      title: 'Sign In',
+                      buttonFunction: () {
+                        Navigator.pushNamed(context, HomeScreen.homeScreen);
+                      }),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Center(
                     child: Text(
                       'Or Continue With',
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                      style: kSecondDegreeTextStyle,
                     ),
                   ),
-
-                  SizedBox(height: 20,),
-                  Row(
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       buildSocialButton(imagePath: 'assets/logo/google.png'),
@@ -88,5 +101,4 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
-
 }

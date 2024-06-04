@@ -1,4 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'constants.dart';
+import 'package:luxuryguide/additional_files.dart';
+
+
 
 BottomNavigationBar buildBottomNavigationBarWidget(
     Function onTap, int selectedInt) {
@@ -85,5 +90,73 @@ BottomNavigationBar buildBottomNavigationBarWidget(
     showSelectedLabels: true, // Show labels for selected items
     showUnselectedLabels: false, // Show labels for unselected items
     iconSize: 28, // Set a fixed icon size
+  );
+}
+
+Drawer buildDrawer(BuildContext context) {
+  AdditionalFiles additionalFiles = AdditionalFiles();
+  return Drawer(
+    backgroundColor: Colors.white,
+    elevation: 16.0, // Adjust elevation for a more prominent drawer
+    child: SafeArea(
+      child: Container(
+        padding: EdgeInsets.only(bottom: 20),
+        color: Colors.white,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: EdgeInsets.all(20.0),
+              decoration: BoxDecoration(
+                color: Colors.black,
+              ),
+              child: Text('My Settings', style: kDrawerHeadingTextStyle),
+            ),
+            Container(
+              height: 400,
+              child: ListView.builder(
+                itemCount: additionalFiles.drawerFileList.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    child: ListTile(
+                      leading: Icon(additionalFiles.drawerFileList[index].iconName,
+                          color: Colors.black), // Black icons
+                      title:
+                      Text(additionalFiles.drawerFileList[index].name, style: kDrawerContentTextStyle),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Divider(color: Colors.white),
+                  Center(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.popUntil(context, (route) => route.isFirst);
+                      },
+                      child: Text(
+                          'Log Out',
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.redAccent,
+                              fontWeight: FontWeight.bold,
+
+                          ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
   );
 }

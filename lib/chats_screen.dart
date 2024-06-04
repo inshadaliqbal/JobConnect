@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:luxuryguide/additional_files.dart';
+import 'package:luxuryguide/constants.dart';
 import 'package:luxuryguide/message_screen.dart';
 
 
@@ -22,11 +23,7 @@ class _ChatScreenState extends State<ChatScreen> {
         automaticallyImplyLeading: false,
         title: Text(
           'Chat',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
-            color: Colors.white,
-          ),
+          style: kAppBarTextStyle
         ),
         backgroundColor: Colors.black,
         elevation: 0,
@@ -43,11 +40,7 @@ class _ChatScreenState extends State<ChatScreen> {
               children: [
                 Text(
                   'Messages',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
+                  style: kFirstDegreeTextStyle
                 ),
                 Icon(Icons.note_alt, color: Colors.black, size: 30),
               ],
@@ -73,19 +66,11 @@ class _ChatScreenState extends State<ChatScreen> {
               children: [
                 Text(
                   'New Group',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black,
-                  ),
+                  style: kThirdDegreeTextStyle
                 ),
                 Text(
                   'Archive',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black,
-                  ),
+                  style: kThirdDegreeTextStyle
                 ),
               ],
             ),

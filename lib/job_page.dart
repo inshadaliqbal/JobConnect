@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:luxuryguide/additional_files.dart';
+import 'package:luxuryguide/constants.dart';
 import 'package:luxuryguide/extracted_widget.dart';
 
 import 'package:flutter/material.dart';
@@ -25,11 +26,7 @@ class _JobPageState extends State<JobPage> {
       appBar: AppBar(
         title: const Text(
           'Job Search',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
-            color: Colors.black,
-          ),
+          style: kAppBarTextStyle
         ),
         backgroundColor: Colors.white,
         elevation: 0,
@@ -86,12 +83,7 @@ class _JobPageState extends State<JobPage> {
             ),
             const Text(
               'Job List',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 1.5,
-                color: Colors.black,
-              ),
+              style: kThirdDegreeTextStyle
             ),
             const SizedBox(height: 10), // Add spacing between title and list
             Expanded(

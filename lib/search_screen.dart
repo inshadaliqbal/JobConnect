@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luxuryguide/constants.dart';
 import 'package:luxuryguide/extracted_widget.dart';
 import 'package:luxuryguide/job_page.dart';
 import 'additional_files.dart';
@@ -25,11 +26,7 @@ class _SearchScreenState extends State<SearchScreen> {
         centerTitle: true,
         title: Text(
           'Explore',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
-            color: Colors.white,
-          ),
+          style: kAppBarTextStyle
         ),
       ),
       backgroundColor: Colors.white,
@@ -44,11 +41,7 @@ class _SearchScreenState extends State<SearchScreen> {
             Text(
               'Select the field you want to explore',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.black87,
-                fontWeight: FontWeight.w500,
-              ),
+              style: kSecondDegreeTextStyle
             ),
             SizedBox(height: 20.0),
             Expanded(
@@ -90,11 +83,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           Text(
                             additionalFiles.jobFieldList![index].name,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500,
-                            ),
+                            style: kNormalDegreeTextStyle
                           ),
                         ],
                       ),
