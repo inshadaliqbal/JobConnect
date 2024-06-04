@@ -5,17 +5,19 @@ import 'package:luxuryguide/job_page.dart';
 import 'additional_files.dart';
 
 class SearchScreen extends StatefulWidget {
-  static const searchScreen = 'SearchScreen';
-  SearchScreen({Key? key}) : super(key: key);
+  static const String searchScreen = 'SearchScreen'; // Use String for route names
+
+  const SearchScreen({Key? key}) : super(key: key);
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  final AdditionalFiles additionalFiles = AdditionalFiles();
+
   @override
   Widget build(BuildContext context) {
-    AdditionalFiles additionalFiles = AdditionalFiles();
     final double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -26,11 +28,11 @@ class _SearchScreenState extends State<SearchScreen> {
         centerTitle: true,
         title: Text(
           'Explore',
-          style: kAppBarTextStyle
+          style: kAppBarTextStyle,
         ),
       ),
       backgroundColor: Colors.white,
-      body: Container(
+      body: Padding( // Use SingleChildScrollView for scrollable content
         padding: EdgeInsets.symmetric(
           vertical: 20.0,
           horizontal: screenWidth < 600 ? 10.0 : 20.0,
@@ -41,9 +43,9 @@ class _SearchScreenState extends State<SearchScreen> {
             Text(
               'Select the field you want to explore',
               textAlign: TextAlign.center,
-              style: kSecondDegreeTextStyle
+              style: kSecondDegreeTextStyle,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             Expanded(
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -54,47 +56,20 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
                 itemCount: additionalFiles.jobFieldList!.length,
                 itemBuilder: (context, index) {
-                  return GestureDetector(
+                  return JobFieldItem(
+                    jobField: additionalFiles.jobFieldList![index],
                     onTap: () {
                       // Handle tap if necessary
+                      Navigator.pushNamed(context, JobPage.jobPage);
                     },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.0),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.2),
-                            spreadRadius: 3,
-                            blurRadius: 5,
-                            offset: Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            additionalFiles.jobFieldList![index].iconName,
-                            size: 40,
-                            color: Colors.black,
-                          ),
-                          SizedBox(height: 10.0),
-                          Text(
-                            additionalFiles.jobFieldList![index].name,
-                            textAlign: TextAlign.center,
-                            style: kNormalDegreeTextStyle
-                          ),
-                        ],
-                      ),
-                    ),
                   );
                 },
               ),
             ),
-            MainButton(title: 'Explore Jobs', buttonFunction: (){
-              Navigator.pushNamed(context, JobPage.jobPage);
-            })
+            MainButton(
+              title: 'Explore Jobs',
+              buttonFunction: () => Navigator.pushNamed(context, JobPage.jobPage),
+            ),
           ],
         ),
       ),

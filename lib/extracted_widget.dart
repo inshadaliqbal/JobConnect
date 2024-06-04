@@ -1,6 +1,8 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:luxuryguide/additional_files.dart';
+import 'package:luxuryguide/constants.dart';
 
 
 class MainButton extends StatelessWidget {
@@ -212,4 +214,129 @@ class CustomListTileWithScrollableContent extends StatelessWidget {
     );
   }
 }
+
+
+
+class JobFieldItem extends StatelessWidget {
+  final JobField jobField;
+  final VoidCallback onTap;
+
+  const JobFieldItem({
+    Key? key,
+    required this.jobField,
+    required this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.2),
+              spreadRadius: 3,
+              blurRadius: 5,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              jobField.iconName,
+              size: 40,
+              color: Colors.black,
+            ),
+            const SizedBox(height: 10.0),
+            Text(
+              jobField.name!,
+              textAlign: TextAlign.center,
+              style: kNormalDegreeTextStyle,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class JobCard extends StatelessWidget {
+  final String jobTitle;
+  final String location;
+  final String imagePath;
+  final String jobType;
+
+  const JobCard({
+    required this.jobTitle,
+    required this.location,
+    required this.imagePath,
+    required this.jobType,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      elevation: 5,
+      child: ListTile(
+        tileColor: Colors.white54,
+        leading: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image.asset(
+            imagePath,
+            fit: BoxFit.fill,
+          ),
+        ),
+        title: Text(
+          jobTitle,
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 1,
+            color: Colors.black,
+          ),
+        ),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              location,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                letterSpacing: 1,
+                color: Colors.black54,
+              ),
+            ),
+            Text(
+              jobType,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                letterSpacing: 1,
+                color: Colors.black54,
+              ),
+            ),
+          ],
+        ),
+        trailing: const Icon(Icons.book, size: 24, color: Colors.black),
+        contentPadding:
+        const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        onTap: () {
+          // Add action when the ListTile is tapped
+        },
+      ),
+    );
+  }
+}
+
 

@@ -8,8 +8,9 @@ import 'package:luxuryguide/widgets.dart';
 import 'search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const homeScreen = 'HomeSceen';
-  HomeScreen({super.key});
+  static const String homeScreen = 'HomeScreen';
+
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -18,8 +19,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
-  static List<Widget> _widgetOptions = <Widget>[
-    HomeScreenContent(),
+  final List<Widget> _screenOptions = [
+    const HomeScreenContent(),
     SearchScreen(),
     ChatScreen(),
     ProfileScreen(),
@@ -34,12 +35,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar:
-          buildBottomNavigationBarWidget(_onItemTapped, _selectedIndex),
+      bottomNavigationBar: buildBottomNavigationBarWidget(_onItemTapped, _selectedIndex),
       backgroundColor: Colors.blueGrey.shade100,
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+      body: _screenOptions[_selectedIndex],
     );
   }
 }

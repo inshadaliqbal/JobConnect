@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:luxuryguide/constants.dart';
-import 'extracted_widget.dart';
+import 'package:luxuryguide/extracted_widget.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const profileScreen = 'ProfileScreen';
-  ProfileScreen({super.key});
+
+  const ProfileScreen({super.key});
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -16,10 +17,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Center(
-          child: const Text(
+        title: const Center(
+          child: Text(
             'Profile',
-            style: kAppBarTextStyle
+            style: kAppBarTextStyle,
           ),
         ),
         backgroundColor: Colors.black,
@@ -29,7 +30,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       backgroundColor: Colors.white,
       body: const SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(20.0), // Common padding applied
+          padding: EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -43,25 +44,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Center(
                 child: Text(
                   'Inshad 24',
-                  style: kProfileMainTextStyle
+                  style: kProfileMainTextStyle,
                 ),
               ),
+              SizedBox(height: 5), // Minor spacing adjustment
               Center(
                 child: Text(
                   '@inshadiqbal',
-                  style: kSecondDegreeTextStyle
+                  style: kSecondDegreeTextStyle,
                 ),
               ),
+              SizedBox(height: 5), // Minor spacing adjustment
               Center(
                 child: Text(
                   'Flutter Developer',
-                  style: kNormalDegreeTextStyle
+                  style: kNormalDegreeTextStyle,
                 ),
               ),
+              SizedBox(height: 5), // Minor spacing adjustment
               Center(
                 child: Text(
                   'India',
-                  style: kSecondDegreeTextStyle
+                  style: kSecondDegreeTextStyle,
                 ),
               ),
               SizedBox(height: 20),
@@ -95,4 +99,3 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 }
-

@@ -27,19 +27,19 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
         centerTitle: true,
         title: const Text(
           'Feed',
-          style: kAppBarTextStyle
+          style: kAppBarTextStyle,
         ),
       ),
       body: Column(
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
             decoration: const BoxDecoration(
+              color: Colors.white,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(20),
                 bottomRight: Radius.circular(20),
               ),
-              color: Colors.white,
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -48,14 +48,14 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                   padding: const EdgeInsets.only(bottom: 35),
                   child: CircleAvatar(
                     radius: 30,
-                    backgroundColor: Colors.grey.shade200,
-                    child: const Icon(Icons.add, color: Colors.black54),
+                    backgroundColor: Colors.black,
+                    child: const Icon(Icons.add, color: Colors.white),
                   ),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
                   child: Container(
-                    height: 100, // Adjusted height for a more compact look
+                    height: 90,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: additionalFiles.storyList!.length,
@@ -79,7 +79,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                                 additionalFiles.storyList![index].name,
                                 style: const TextStyle(
                                   fontSize: 14,
-                                  color: Colors.black87,
+                                  color: Colors.white,
                                   letterSpacing: 1,
                                 ),
                               ),
@@ -103,11 +103,11 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                     margin: const EdgeInsets.symmetric(vertical: 10),
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.black,
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withOpacity(0.1),
+                          color: Colors.black.withOpacity(0.2),
                           spreadRadius: 2,
                           blurRadius: 4,
                           offset: const Offset(0, 2),
@@ -121,7 +121,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                           children: [
                             CircleAvatar(
                               radius: 20,
-                              backgroundColor: Colors.black,
+                              backgroundColor: Colors.white,
                               child: CircleAvatar(
                                 radius: 18,
                                 backgroundImage: AssetImage(
@@ -135,22 +135,25 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                               style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black,
+                                color: Colors.white,
                               ),
                             ),
                           ],
                         ),
                         const SizedBox(height: 10),
-                        const Text(
-                          'Post Text',
-                          style: TextStyle(fontSize: 14, color: Colors.black87),
+                        Text(
+                          additionalFiles.postList![index].name ?? '',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.white70,
+                          ),
                         ),
                         const SizedBox(height: 10),
                         Container(
                           constraints: const BoxConstraints(
                             minWidth: 200,
                             minHeight: 200,
-                            maxHeight: 400, // Adjusted for better image scaling
+                            maxHeight: 400,
                           ),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(15),
@@ -171,5 +174,4 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
       ),
     );
   }
-
 }
