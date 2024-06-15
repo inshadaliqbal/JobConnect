@@ -43,14 +43,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(height: 20),
               Center(
                 child: Text(
-                  'Inshad 24',
+                  'Ameen 24',
                   style: kProfileMainTextStyle,
                 ),
               ),
               SizedBox(height: 5), // Minor spacing adjustment
               Center(
                 child: Text(
-                  '@inshadiqbal',
+                  '@Ameen123',
                   style: kSecondDegreeTextStyle,
                 ),
               ),
